@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="1538300151.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FHIC匿名系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col bg-stone-700 h-screen w-screen items-center relative">
+      <div class="bg-teal-700 text-green-100 w-1/3 h-20 text-center items-center text-5xl rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute top-10">
+        FHIC匿名留言板
+      </div>
+      <div class="relative w-screen h-screen">
+        <div class="flex flex-row w-screen h-11/12 place-content-around absolute top-72">
+            <div onclick="window.location.assign('signIn.html')" class="bg-teal-700 text-green-100 cursor-pointer hover:border-4 hover:border-green-100 w-1/3 h-96 text-center text-7xl rounded-3xl pt-40 shadow-2xl shadow-stone-900">
+              帳號登入
+            </div>
+          <div onclick="window.location.assign('message.html')" class="bg-teal-700 text-green-100 cursor-pointer hover:border-4 hover:border-green-100 w-1/3 h-96 text-center text-7xl rounded-3xl pt-40 shadow-2xl shadow-stone-900">
+            前往留言板
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

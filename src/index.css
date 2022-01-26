@@ -1,0 +1,133 @@
+/*
+ * cwTeXYen (Chinese Traditional) http://www.google.com/fonts/earlyaccess
+ */
+ @font-face {
+    font-family: 'cwTeXYen';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot);
+    src: url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot?#iefix) format('embedded-opentype'),
+         url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff2) format('woff2'),
+         url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff) format('woff'),
+         url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.ttf) format('truetype');
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'cwTeXYen', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    margin-bottom: 3vh;
+}
+
+header > h1 {
+    font-size: 4.5rem;
+}
+
+#messageBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+}
+
+#leaveMessageArea {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 80%;
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px 2px rgba(10, 10, 10, 0.1);
+    background-color: #4345f6;
+    color: #f3f3f3;
+    padding: 2rem 1.2rem;
+}
+
+#messageCreaterHint {
+    font-size: 3rem
+}
+
+#messageCreater {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.6rem;
+}
+
+#messageInput {
+    resize: none;
+    border-radius: 6px;
+    width: 95%;
+    font-size:1.5rem;
+    padding: 10px 14px;
+}
+
+#messageSubmit {
+    align-self: flex-end;
+    background-color: #23e222;
+    border-style: none;
+    border-radius: 6px;
+    padding: 16px 24px;
+    color: #444;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#messageSubmit:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.messageSubmiter:hover {
+    background-color: #21d911;
+}
+
+.messageSubmiter:active {
+    transform: translate(2px, 2px);
+    background-color: #21d911;
+}
+
+
+.board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    row-gap: 1.2rem;
+    border-width: 1px;
+    border-color: #a1a1a1;
+    border-radius: 15px;
+    /* border-style: solid; */
+    box-shadow: 2px 2px 5px 2px rgba(10, 10, 10, 0.1);
+    width: 60vw;
+}
+
+.board .message {
+    width: 96%;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+    padding: 1.5rem 6px;
+    padding-left: 1rem;
+    font-size: 2rem;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+}
+
+.board .record {
+    font-size: 1.2rem;
+    align-self: flex-end;
+}
+
+footer {
+    margin-top: 3rem;
+    padding: 12px 2px;
+    text-align: center;
+}
