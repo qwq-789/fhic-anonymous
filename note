@@ -7,15 +7,15 @@ id="boardMessage"
 id="messageTimeRecord"
 //即時留言時間
 
-id="messageBoard"
+; id="messageBoard"
 //上方留言大框
 
-form id="messageCreater"
+; form id="messageCreater"
 //留言處及按鈕的表單
 input disabled//禁用按鈕
 
-textarea id="messageInput"
+; textarea id="messageInput"
 //留言處
 
-id="messageSubmit"
+; id="messageSubmit"
 //送出按鈕
