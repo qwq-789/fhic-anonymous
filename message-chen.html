@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OOOO 系統留言板</title>
-    <link rel="stylesheet" href="./src/index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./src/index.css" />
+  </head>
+  <body>
     <header class="">
-        <h1 class="">OOOO 系統留言板</h1>
+      <h1 class="">OOOO 系統留言板</h1>
     </header>
     <section id="messageBoard">
-        <div id="leaveMessageArea">
-            <h2 id="messageCreaterHint">
-                我想說的話：
-            </h2>
-            <form id="messageCreater">
-                <textarea name="messageInput" id="messageInput" cols="20" rows="3"></textarea>
-                <input id="messageSubmit" type="submit" value="送出" disabled/>
-            </form>
-        </div>
-        <div class="board">
-            <p id="boardMessage" class="message">測試留言</p>
-            <p id="messageTimeRecord" class="record">留言時間： 2021-12-10 09:28</p>
-        </div>
+      <div id="leaveMessageArea">
+        <h2 id="messageCreaterHint">我想說的話：</h2>
+        <form id="messageCreater">
+          <textarea
+            name="messageInput"
+            id="messageInput"
+            cols="20"
+            rows="3"
+          ></textarea>
+          <input id="messageSubmit" type="submit" value="送出" disabled />
+        </form>
+      </div>
+      <div class="board">
+        <p id="boardMessage" class="message">測試留言</p>
+        <p id="messageTimeRecord" class="record">留言時間： 2021-12-10 09:28</p>
+      </div>
     </section>
-    
+
     <template id="messages">
-        <div class="board">
-            <p id="boardMessage" class="message">{{留言}}</p>
-            <p id="messageTimeRecord" class="record">留言時間： {{時間}}</p>
-        </div>
+      <div class="board">
+        <p id="boardMessage" class="message">{{留言}}</p>
+        <p id="messageTimeRecord" class="record">留言時間： {{時間}}</p>
+      </div>
     </template>
     <footer class="">
-        <p class="">版權所有，翻印必究</p>
+      <p class="">版權所有，翻印必究</p>
     </footer>
     <script src="./src/index.js"></script>
     <script src="./src/elementConfig.js"></script>
-</body>
+  </body>
 </html>

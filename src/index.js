@@ -25,7 +25,7 @@ messageCreater.addEventListener('submit', function(e) {
         timestamp: timeFormat(new Date()),
     };
 
-    fetchOptions = {
+    const fetchOptions = {
         method: "POST",
         headers: {
             'Content-Type': 'text/plain'
