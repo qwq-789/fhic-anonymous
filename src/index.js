@@ -7,7 +7,11 @@ function renderMessageBox(message, timestamp) {
     
     //複製一份 template 的內容
     const cloneMessageBox = document.importNode(messageBox, true);
-    document.getElementById('messageBoard').appendChild(cloneMessageBox);
+    if (messageBoardReply.style.display == "block"){
+        document.getElementById(a.parentNode).appendChild(cloneMessageBox);
+    }else{
+        document.getElementById('messageBoard').appendChild(cloneMessageBox);
+    }
 }
 
 
