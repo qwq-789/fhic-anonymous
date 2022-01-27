@@ -22,7 +22,7 @@
           class="flex flex-row w-screen h-11/12 place-content-around absolute top-48"
         >
           <div
-            id="messageBoard"
+            
             class="bg-teal-700 text-green-100 w-1/3 h-96 text-center text-4xl rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl pt-16 shadow-2xl shadow-stone-900"
           >
             <form id="messageCreater">
@@ -48,6 +48,7 @@
             </form>
           </div>
           <section
+            id="messageBoard"
             class="bg-teal-700 text-green-100 w-1/3 h-96 text-center text-7xl rounded-3xl py-8 shadow-2xl shadow-stone-900 space-y-6 overflow-auto"
           >
             <div
@@ -63,8 +64,9 @@
                 2022-01-26 16:07
               </p>
             </div>
+            
             <template id="messages" class="w-full bg-white">
-              <div class="w-11/12 mx-auto bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 my-4 space-y-2">
+              <div class="w-11/12 mx-auto bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2">
                 <p id="boardMessage" class="text-slate-600 text-3xl">{{留言}}</p>
                 <p id="messageTimeRecord" class="text-[1rem] text-stone-300 float-right">{{時間}}</p>
               </div>
