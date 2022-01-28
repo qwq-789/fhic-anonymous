@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbx5iXFORkjOkBfxNlUNZ4TdNRaZVkERChxbt0DW0Z8cPEgfaz1XkSssqPECmk4PRDt3/exec"
+const url = "https://script.google.com/macros/s/AKfycbyj6DJPKjFbeYmAS2cgZnyVXSGrPHqFDrgzo1FuZAUH-uOkAu_3UN3ggIWPTV-FxS2M/exec"
 
 function renderMessageBox(message, timestamp) {
     const messageBox = document.getElementById('messages').content;
