@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="1538300151.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FHIC匿名系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-700">
+    <div
+      class="flex flex-col h-screen w-screen items-center relative"
+    >
+      <div
+        class="bg-teal-700 text-green-100 text-center items-center rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute w-10/12 top-7 text-3xl md:w-1/3 md:h-20 md:text-5xl md:top-10"
+      >
+        FHIC回覆板
+      </div>
+      <section class="relative w-screen h-screen">
+        <div
+          class="flex flex-col md:flex-row w-screen h-11/12 place-content-around absolute top-36 md:top-48 gap-y-6"
+        >
+          <section
+            class="bg-teal-700 text-green-100 w-[90%] h-60 mx-[5vw] md:w-1/2 md:h-96 text-center rounded-3xl pt-8 pb-8 shadow-2xl shadow-stone-900 overflow-auto"
+          >
+            <div
+              class="w-11/12 mx-auto mt-0 mb-4 bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2"
+            >
+              <div>
+                <p id="boardMessage" class="message text-slate-600 text-3xl">
+                  1範例留言
+                </p>
+                <i
+                  onclick="del(this)"
+                  class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
+                ></i>
+                <i
+                  onclick="reply(this)"
+                  class="fas fa-reply text-xl text-sky-500 md:text-sky-200 md:hover:text-sky-500 mx-3 float-left cursor-pointer"
+                ></i>
+                <p
+                  id="messageTimeRecord"
+                  class="record text-[1rem] text-stone-300 float-right"
+                >
+                  2022-01-26 16:07
+                </p>
+              </div>
+            </div>
+            <div
+              id="messageBoard"
+              class="w-11/12 mx-auto mt-0 mb-4 bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2"
+            >
+            <div>
+              <p id="boardMessage" class="message text-slate-600 text-3xl">
+                2範例留言
+              </p>
+              <i
+                onclick="del(this)"
+                class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
+              ></i>
+              <i
+                onclick="reply(this)"
+                class="fas fa-reply text-xl text-sky-500 md:text-sky-200 md:hover:text-sky-500 mx-3 float-left cursor-pointer"
+              ></i>
+              <p
+                id="messageTimeRecord"
+                class="record text-[1rem] text-stone-300 float-right"
+              >
+                2022-01-26 16:07
+              </p>
+            </div>
+            </div>
+            <template id="messages" class="w-full">
+              <div
+                class="w-full h-auto mt-10 -mb-6 pt-3 pb-10 px-6 bg-gray-100 rounded-3xl text-2xl space-y-2"
+              >
+                <i class="fas fa-level-up-alt -scale-x-100 float-left text-stone-400"></i>
+                <p id="boardMessage" class="text-slate-600 text-3xl">
+                  {{留言}}
+                </p>
+                <i
+                onclick="del1(this)"
+                class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
+              ></i>
+                <p
+                  id="messageTimeRecord"
+                  class="text-[1rem] text-stone-400 float-right"
+                >
+                  {{時間}}
+                </p>
+              </div>
+            </template>
+          </section>
+          <div
+            id="messageBoard-2"
+            class="hidden bg-teal-700 text-green-100 w-[90%] h-44 mx-[5vw] md:w-1/3 md:h-96 text-center text-4xl rounded-tl-3xl rounded-tr-3xl md:rounded-bl-3xl pt-5 md:pt-16 shadow-2xl shadow-stone-900"
+          >
+            <form id="messageCreater">
+              <div id="leaveMessageArea">
+                <label for="messageInput">輸入回覆：</label>
+                <textarea
+                  type="text"
+                  rows="6"
+                  class="text-black text-2xl mt-5 mb-3 md:mb-0 md:mt-10 pl-2 md:pl-3 pt-3 w-5/6 max-h-20 md:max-h-48 resize-none"
+                  id="messageInput"
+                  name="messageInput"
+                ></textarea>
+              </div>
+              <input
+                id="messageReply"
+                type="submit"
+                value="回覆"
+                class="bg-teal-700 text-green-100 w-[90%] h-14 text-3xl -bottom-14 right-[5vw] cursor-pointer rounded-bl-3xl rounded-br-3xl border-3 border-t-0 border-cyan-900 shadow-2xl shadow-stone-900 absolute md:w-1/12 md:h-20 md:text-4xl md:p-3 md:right-1/12 md:top-96 md:hover:border-4 md:hover:border-green-100 disabled:bg-gray-500 disabled:text-gray-800 disabled:cursor-not-allowed"
+                disabled
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/elementConfig.js"></script>
+    <!--reply-->
+    <script>
+      const messageBoardReply = document.getElementById("messageBoard-2");
+      var borad;
+      function reply(a) {
+        borad = a.parentNode;
+        messageBoardReply.style.display = "block";
+      }
+
+      function del(e) {
+        const textarea = e.parentNode.parentNode;
+        console.log(textarea);
+        messageBoardReply.style.display = "none";
+        textarea.style.display = "none";
+      }
+
+      function del1(i) {
+        const textarea = i.parentNode;
+        console.log(textarea);
+        textarea.style.display = "none";
+      }
+
+      const url =
+        "https://script.google.com/macros/s/AKfycbyj6DJPKjFbeYmAS2cgZnyVXSGrPHqFDrgzo1FuZAUH-uOkAu_3UN3ggIWPTV-FxS2M/exec";
+
+      function renderMessageBox(message, timestamp) {
+        const messageBox = document.getElementById("messages").content;
+        messageBox.getElementById("boardMessage").innerText = message;
+        messageBox.getElementById("messageTimeRecord").innerText = timestamp;
+
+        //複製一份 template 的內容
+        const cloneMessageBox = document.importNode(messageBox, true);
+        borad.appendChild(cloneMessageBox);
+      }
+
+      const messageCreater = document.getElementById("messageCreater");
+      const messageInput = document.getElementById("messageInput");
+      const messageSubmit = document.getElementById("messageReply");
+      messageCreater.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (messageInput.value == "") {
+          return;
+        }
+        const message = messageInput.value;
+        const fetchData = {
+          message: message,
+          timestamp: timeFormat(new Date()),
+        };
+
+        const fetchOptions = {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain",
+          },
+          body: JSON.stringify(fetchData),
+        };
+        messageInput.value = "";
+        messageSubmit.disabled = true;
+        messageSubmit.classList.remove("messageSubmiter");
+
+        fetch(url, fetchOptions)
+          .then((res) => {
+            return res.json();
+          })
+          .then((doc) => {
+            console.log(doc);
+            renderMessageBox(doc.message, doc.timestamp);
+          })
+          .catch((e) => {
+            console.log(e);
+            alert("不好意思，目前系統有點狀況，請通知管理員。");
+          });
+      });
+
+      messageInput.addEventListener("input", function () {
+        // early return 不要管的事情提前結束
+        if (messageInput.value == "") {
+          messageSubmit.disabled = true;
+          messageSubmit.classList.remove("messageSubmiter");
+          return;
+        }
+        messageSubmit.disabled = false;
+        messageSubmit.classList.add("messageSubmiter");
+      });
+
+      function timeFormat(date) {
+        // yyyy-MM-dd hh:mm
+        const year = date.getFullYear();
+        const month = timeAddZero(date.getMonth() + 1);
+        const day = timeAddZero(date.getDate());
+        const hour = timeAddZero(date.getHours());
+        const minute = timeAddZero(date.getMinutes());
+
+        return `${year}-${month}-${day} ${hour}:${minute}`;
+      }
+
+      function timeAddZero(number) {
+        if (number < 10) {
+          return `0${number}`;
+        }
+        return number;
+      }
+    </script>
+  </body>
+</html>
