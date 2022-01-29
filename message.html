@@ -8,32 +8,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body>
-    <div
-      class="flex flex-col bg-stone-700 h-screen w-screen items-center relative"
-    >
+  <body class="bg-stone-700">
+    <div class="flex flex-col h-screen w-screen items-center relative">
       <div
-        class="bg-teal-700 text-green-100 w-1/3 h-20 text-center items-center text-5xl rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute top-10"
+        class="bg-teal-700 text-green-100 text-center items-center rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute w-10/12 top-7 text-3xl md:w-1/3 md:h-20 md:text-5xl md:top-10"
       >
         FHIC留言板
       </div>
       <section class="relative w-screen h-screen">
         <div
-          class="flex flex-row w-screen h-11/12 place-content-around absolute top-48"
+          class="flex flex-col gap-y-8 absolute top-36 space-y-8 md:place-content-around md:space-y-0 md:flex-row md:w-screen md:h-11/12 md:top-52"
         >
           <div
-            
-            class="bg-teal-700 text-green-100 w-1/3 h-96 text-center text-4xl rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl pt-16 shadow-2xl shadow-stone-900"
+            class="bg-teal-700 text-green-100 text-center rounded-t-3xl shadow-2xl shadow-stone-900 w-[90vw] h-[13rem] text-3xl pt-5 mx-[5vw] md:w-1/3 md:h-96 md:pt-10 md:text-5xl md:rounded-bl-3xl"
           >
             <form id="messageCreater">
               <div id="leaveMessageArea">
-                <label for="messageInput"
-                  >請輸入你的留言</label
-                >
+                <label for="messageInput">請輸入你的留言</label>
                 <textarea
                   type="text"
                   rows="6"
-                  class="text-black text-2xl mt-10 pl-3 pt-3 w-5/6 max-h-48 resize-none"
+                  class="text-black text-2xl mt-3 pl-2 w-5/6 max-h-24 resize-none md:mt-10 md:pl-3 md:pt-3 md:max-h-48"
                   id="messageInput"
                   name="messageInput"
                 ></textarea>
@@ -42,21 +37,19 @@
                 id="messageSubmit"
                 type="submit"
                 value="送出"
-                class="bg-teal-700 text-4xl text-green-100 cursor-pointer border-3 border-t-0 hover:border-4 hover:border-green-100 disabled:bg-gray-500 disabled:text-gray-800 disabled:cursor-not-allowed rounded-bl-3xl rounded-br-3xl w-1/12 h-20 p-3 left-1/3 border-cyan-900 absolute top-96 shadow-2xl shadow-stone-900"
+                class="bg-teal-700 text-green-100 w-[90%] h-14 text-3xl top-48 right-[5vw] cursor-pointer rounded-bl-3xl rounded-br-3xl border-3 border-t-0 border-cyan-900 shadow-2xl shadow-stone-900 absolute md:w-1/12 md:h-20 md:text-4xl md:p-3 md:left-[33.4%] md:top-96 md:hover:border-4 md:hover:border-green-100 disabled:bg-gray-500 disabled:text-gray-800 disabled:cursor-not-allowed"
                 disabled
               />
             </form>
           </div>
           <section
             id="messageBoard"
-            class="bg-teal-700 text-green-100 w-1/3 h-96 text-center text-7xl rounded-3xl py-8 shadow-2xl shadow-stone-900 space-y-6 overflow-auto"
+            class="bg-teal-700 text-green-100 text-center rounded-3xl shadow-2xl shadow-stone-900 w-[90vw] h-[13rem] text-4xl py-5 mx-[5vw] md:w-1/3 md:h-96 md:pt-10 md:text-7xl space-y-6 overflow-auto"
           >
             <div
               class="w-11/12 mx-auto bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2"
             >
-              <p id="boardMessage" class="text-slate-600 text-3xl">
-                範例留言
-              </p>
+              <p id="boardMessage" class="text-slate-600 text-3xl">範例留言</p>
               <p
                 id="messageTimeRecord"
                 class="text-[1rem] text-stone-300 float-right"
@@ -64,11 +57,20 @@
                 2022-01-26 16:07
               </p>
             </div>
-            
+
             <template id="messages" class="w-full bg-white">
-              <div class="w-11/12 mx-auto bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2">
-                <p id="boardMessage" class="text-slate-600 text-3xl">{{留言}}</p>
-                <p id="messageTimeRecord" class="text-[1rem] text-stone-300 float-right">{{時間}}</p>
+              <div
+                class="w-11/12 mx-auto bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2"
+              >
+                <p id="boardMessage" class="text-slate-600 text-3xl">
+                  {{留言}}
+                </p>
+                <p
+                  id="messageTimeRecord"
+                  class="text-[1rem] text-stone-300 float-right"
+                >
+                  {{時間}}
+                </p>
               </div>
             </template>
           </section>
@@ -77,5 +79,6 @@
     </div>
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/elementConfig.js"></script>
   </body>
 </html>

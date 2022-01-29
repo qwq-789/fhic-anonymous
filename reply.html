@@ -7,21 +7,21 @@
     <title>FHIC匿名系統</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-stone-700">
     <div
-      class="flex flex-col bg-stone-700 h-screen w-screen items-center relative"
+      class="flex flex-col h-screen w-screen items-center relative"
     >
       <div
-        class="bg-teal-700 text-green-100 w-1/3 h-20 text-center items-center text-5xl rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute top-10"
+        class="bg-teal-700 text-green-100 text-center items-center rounded-full p-4 border-2 border-cyan-900 shadow-2xl shadow-stone-900 absolute w-10/12 top-7 text-3xl md:w-1/3 md:h-20 md:text-5xl md:top-10"
       >
         FHIC回覆板
       </div>
       <section class="relative w-screen h-screen">
         <div
-          class="flex flex-row w-screen h-11/12 place-content-around absolute top-48"
+          class="flex flex-col md:flex-row w-screen h-11/12 place-content-around absolute top-36 md:top-48 gap-y-6"
         >
           <section
-            class="bg-teal-700 text-green-100 w-1/2 h-96 text-center text-7xl rounded-3xl pt-8 pb-8 shadow-2xl shadow-stone-900 overflow-auto"
+            class="bg-teal-700 text-green-100 w-[90%] h-60 mx-[5vw] md:w-1/2 md:h-96 text-center rounded-3xl pt-8 pb-8 shadow-2xl shadow-stone-900 overflow-auto"
           >
             <div
               class="w-11/12 mx-auto mt-0 mb-4 bg-white h-auto rounded-3xl text-2xl pt-3 pb-10 px-6 space-y-2"
@@ -32,11 +32,11 @@
                 </p>
                 <i
                   onclick="del(this)"
-                  class="fas fa-times-circle text-xl text-red-200 hover:text-red-500 float-left cursor-pointer"
+                  class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
                 ></i>
                 <i
                   onclick="reply(this)"
-                  class="fas fa-reply text-xl text-sky-200 hover:text-sky-500 mx-3 float-left cursor-pointer"
+                  class="fas fa-reply text-xl text-sky-500 md:text-sky-200 md:hover:text-sky-500 mx-3 float-left cursor-pointer"
                 ></i>
                 <p
                   id="messageTimeRecord"
@@ -56,11 +56,11 @@
               </p>
               <i
                 onclick="del(this)"
-                class="fas fa-times-circle text-xl text-red-200 hover:text-red-500 float-left cursor-pointer"
+                class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
               ></i>
               <i
                 onclick="reply(this)"
-                class="fas fa-reply text-xl text-sky-200 hover:text-sky-500 mx-3 float-left cursor-pointer"
+                class="fas fa-reply text-xl text-sky-500 md:text-sky-200 md:hover:text-sky-500 mx-3 float-left cursor-pointer"
               ></i>
               <p
                 id="messageTimeRecord"
@@ -80,7 +80,7 @@
                 </p>
                 <i
                 onclick="del1(this)"
-                class="fas fa-times-circle text-xl text-red-200 hover:text-red-500 float-left cursor-pointer"
+                class="fas fa-times-circle text-xl text-red-500 md:text-red-200 md:hover:text-red-500 float-left cursor-pointer"
               ></i>
                 <p
                   id="messageTimeRecord"
@@ -93,7 +93,7 @@
           </section>
           <div
             id="messageBoard-2"
-            class="hidden bg-teal-700 text-green-100 w-1/3 h-96 text-center text-4xl rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl pt-16 shadow-2xl shadow-stone-900"
+            class="hidden bg-teal-700 text-green-100 w-[90%] h-44 mx-[5vw] md:w-1/3 md:h-96 text-center text-4xl rounded-tl-3xl rounded-tr-3xl md:rounded-bl-3xl pt-5 md:pt-16 shadow-2xl shadow-stone-900"
           >
             <form id="messageCreater">
               <div id="leaveMessageArea">
@@ -101,7 +101,7 @@
                 <textarea
                   type="text"
                   rows="6"
-                  class="text-black text-2xl mt-10 pl-3 pt-3 w-5/6 max-h-48 resize-none"
+                  class="text-black text-2xl mt-5 mb-3 md:mb-0 md:mt-10 pl-2 md:pl-3 pt-3 w-5/6 max-h-20 md:max-h-48 resize-none"
                   id="messageInput"
                   name="messageInput"
                 ></textarea>
@@ -110,7 +110,7 @@
                 id="messageReply"
                 type="submit"
                 value="回覆"
-                class="bg-teal-700 text-4xl text-green-100 cursor-pointer border-3 border-t-0 hover:border-4 hover:border-green-100 disabled:bg-gray-500 disabled:text-gray-800 disabled:cursor-not-allowed rounded-bl-3xl rounded-br-3xl w-1/12 h-20 p-3 right-[4.15%] border-cyan-900 absolute top-96 shadow-2xl shadow-stone-900"
+                class="bg-teal-700 text-green-100 w-[90%] h-14 text-3xl -bottom-14 right-[5vw] cursor-pointer rounded-bl-3xl rounded-br-3xl border-3 border-t-0 border-cyan-900 shadow-2xl shadow-stone-900 absolute md:w-1/12 md:h-20 md:text-4xl md:p-3 md:right-1/12 md:top-96 md:hover:border-4 md:hover:border-green-100 disabled:bg-gray-500 disabled:text-gray-800 disabled:cursor-not-allowed"
                 disabled
               />
             </form>
@@ -119,6 +119,7 @@
       </section>
     </div>
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/elementConfig.js"></script>
     <!--reply-->
     <script>
       const messageBoardReply = document.getElementById("messageBoard-2");
